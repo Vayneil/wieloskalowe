@@ -1,0 +1,40 @@
+.canvas-container {
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+.canvas {
+    border: 1px solid #333;
+}
+
+header {
+    margin-bottom: 70px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+.jumbotron {
+    margin-top: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 4px 8px rgba(0,0,0,0.10);
+}
+
+.my-radio {
+    margin: auto;
+
+}
+
+#startingPoint {
+    margin-bottom: 10px;
+}
+
+.button-margin {
+    margin: 10px 0;
+}
+
+h6 {
+    margin-top: 20px;
+}

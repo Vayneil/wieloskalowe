@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cellular Automata</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script type="module" src="js/script.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <header class="text-center">
+                <!--<h2>Elementary cellular automata</h2>-->
+                <h6>Author: Michał Krakowski</h6>
+                <hr class="my-4">
+            </header>
+
+            <div class="row">
+                <div class="col-12">
+                    <form>
+                        <div>
+                            <div class="form-group">
+                                <!--<label for="inputRule">Rule:</label>
+                                <input type="text" class="form-control" id="inputRule" width="200"
+                                       placeHolder="Enter a number from 0-255">
+
+                                <label for="startingPoint">Select starting point:</label>
+                                <select id="startingPoint" class="form-control input-group-sm">
+                                    <option value="0" selected>In the middle</option>
+                                    <option value="1">On the left</option>
+                                    <option value="2">On the right</option>
+                                    <option value="3">Random</option>
+                                </select>-->
+                                <h4>Settings:</h4>
+
+
+                                <h6>Grid size:</h6>
+                                <div class="row">
+
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" id="gridSizeX" placeholder="X">
+                                    </div>
+
+                                    <div class="col-2">
+                                        <input type="text" class="form-control" id="gridSizeY" placeholder="Y">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <h6>Boundary condition:</h6>
+                                <label>
+                                    <input class="my-radio" type="radio" name="bc" value="1"> Periodic
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="bc" value="0"> Absorbing
+                                </label>
+                            </div>
+
+                            <div>
+                                <h6>Seeding:</h6>
+                                <label>
+                                    <input class="my-radio" type="radio" name="seed" value="0"> Random
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" id="numOfRandom" placeholder="Number of random elements">
+                                </div>
+
+                                <label>
+                                    <input class="my-radio" type="radio" name="seed" value="1"> Homogeneous
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" id="homoRows" placeholder="Rows">
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" id="homoColumns" placeholder="Columns">
+                                </div>
+
+                                <label>
+                                    <input class="my-radio" type="radio" name="seed" value="2"> Radius
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" id="radius" placeholder="Radius">
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" id="numOfRadius" placeholder="Number of elements">
+                                </div>
+
+                                <label>
+                                    <input class="my-radio" type="radio" name="seed" value="3"> Radius with weights
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" id="weightedRadius" placeholder="Radius">
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" id="numOfWeightedRadius" placeholder="Number of elements">
+                                </div>
+
+
+                            </div>
+
+                            <div>
+                                <h6>Neighbourhood: </h6>
+                                <label>
+                                    <input class="my-radio" type="radio" name="neighbour" value="neumann"> Neumann
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="neighbour" value="moore"> Moore
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="neighbour" value="hexagonalLeft"> Hexagonal left
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="neighbour" value="hexagonalRight"> Hexagonal right
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="neighbour" value="hexagonalRandom"> Hexagonal random
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="neighbour" value="pentagonalRandom"> Pentagonal random
+                                </label>
+
+
+                            </div>
+
+                            <div class="button-margin">
+                                <button id="settings" type="button" class="btn btn-success">Apply</button>
+                            </div>
+
+                            <hr class="my-4">
+
+
+
+                            <!--<label>Select grid size:</label>
+
+                            <div>
+                                <label>
+                                    <input class="my-radio" type="radio" name="size" value="20"> 20
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="size" value="50"> 50
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="size" value="100"> 100
+                                </label>
+                                <label>
+                                    <input class="my-radio" type="radio" name="size" value="200"> 200
+                                </label>
+                            </div>-->
+
+                            <button id="run" type="button" class="btn btn-dark">Run 1 iteration</button>
+                            <button id="animation" type="button" class="btn btn-dark">10 fps animation</button>
+                            <button id="stop" type="button" class="btn btn-danger">Stop</button>
+
+                            <hr class="my-4">
+
+                            <div>
+                                <h6>Monte Carlo: </h6>
+                                <div>
+                                    <input type="text" class="form-control" id="monteCarloIterations" placeholder="Number of iterations">
+                                </div>
+
+                                <div class="button-margin">
+                                    <button id="simulate" type="button" class="btn btn-success">Simulate</button>
+                                    <button id="energy" type="button" class="btn btn-danger">Energy</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h6>DRX: </h6>
+
+                                <div class="button-margin">
+                                    <button id="drx" type="button" class="btn btn-success">1 iteration</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="canvas-container" id="container">
+                <canvas class="canvas" id="canvas" width="0" height="0"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
